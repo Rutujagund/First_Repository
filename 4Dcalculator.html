@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Demo 4</title>
+	<style type="text/css">
+		.container{
+			text-align:center;
+			/*border:2px solid black;*/
+			margin-top:25px;
+		}
+		table{
+			margin:auto;
+		}
+		input{
+			border-radius:20px;
+			border:4px  solid black;
+			font-size:34px;
+		}
+		button{
+			border-radius:20px;
+			font-size:40px;
+			background-color:grey;
+			width:102px;
+			height:58px;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<h1>Calculator</h1>
+	<div class="calculator">
+		 		<input type="text" name="screen" id="screen">
+		 <table>
+		 	<tr>
+		 		<td><button>7</button></td>
+		 		<td><button>8</button></td>
+		 		<td><button>9</button></td>
+		 		<td><button>+</button></td>
+		 	</tr>
+		 	<tr>
+		 		<td><button>4</button></td>
+		 		<td><button>5</button></td>
+		 		<td><button>6</button></td>
+     	 		<td><button>-</button></td>
+		 	</tr>
+		 	<tr>
+		 		<td><button>1</button></td>
+		 		<td><button>2</button></td>
+		 		<td><button>3</button></td>
+		 		<td><button>X</button></td>
+		 	</tr>
+		 	<tr>
+		 		<td><button>0</button></td>
+		 		<td><button>C</td>
+		 		<td><button>=</button></td>
+		 		<td><button>/</button></td>
+		 	</tr>
+		 </table>
+		</div>
+</div>
+
+<script type="text/javascript">
+	let screen=document.getElementById('screen');
+	buttons = document.querySelectorAll('button');
+	let screenvalue='';
+	for(item of buttons){
+		item.addEventListener('click',(e)=>{
+			buttonText = e.target.innerText;
+
+			if(buttonText=='X'){
+				buttonText='*';
+				screenvalue +=buttonText;
+				screen.value =screenvalue;
+			}
+			else if (buttonText =='C'){
+				screenvalue ="";
+				screen.value=screenvalue;
+			}
+			else if (buttonText =='='){
+				screen.value=eval(screenvalue);
+			}
+			else{
+				screenvalue+=buttonText;
+				screen.value=screenvalue;
+			}
+		})
+	}
+
+	
+</script>
+</body>
+</html>
